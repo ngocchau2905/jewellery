@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Crystal Jewellery</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f5f1eb; /* Màu nền kem nhạt */
+            --primary-brown: #7a5533; /* Màu nâu chủ đạo */
+            --text-muted: #8e8e8e;
+            --input-border: #eee;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+        }
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-box {
+            background: var(--primary-brown);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .brand-name h5 { margin: 0; font-weight: bold; font-size: 18px; }
+        .brand-name p { margin: 0; font-size: 11px; color: var(--text-muted); }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+        .btn-contact-top {
+            background: var(--primary-brown);
+            color: white !important;
+            padding: 8px 25px;
+            border-radius: 20px;
+        }
+        .lang-switch {
+            background: white;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+        }
+
+        /* Main Content */
+        .main-content { padding: 0 50px; margin-top: 20px; }
+        .page-title {
+            font-family: 'Georgia', serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #2c2c2c;
+        }
+        .page-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+
+        /* Layout */
+        .contact-wrapper {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .form-card {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            flex: 1.5;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .info-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Form Card Styling */
+        .form-card h2 {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+        .form-label {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .form-control {
+            border: 1px solid var(--input-border);
+            border-radius: 12px;
+            padding: 12px 15px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        textarea.form-control {
+            height: 150px;
+            resize: none;
+        }
+        .btn-send {
+            background: var(--primary-brown);
+            color: white;
+            width: 100%;
+            border: none;
+            padding: 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Info Cards Styling */
+        .info-box {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .info-box h3 {
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .info-box p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .care-card {
+            background: var(--primary-brown);
+            color: white;
+            border-radius: 25px;
+            padding: 30px;
+        }
+        .care-card h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .care-list {
+            list-style: none;
+            padding: 0;
+            font-size: 14px;
+        }
+        .care-list li {
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar-custom">
+        <div class="brand-section">
+            <div class="logo-box">CJ</div>
+            <div class="brand-name">
+                <h5>Crystal Jewellery</h5>
+                <p>Sales Management System</p>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#" class="btn-contact-top">Contact</a>
+            <a href="profile.html">Profile</a>
+            <a href="cart.html">My Cart</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+            <div class="lang-switch"><b>EN</b> | VI</div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-title">Contact Crystal Jewellery</h1>
+        <p class="page-subtitle">Reach the store for product inquiries, order support, or collaboration requests.</p>
+
+        <div class="contact-wrapper">
+            <div class="form-card">
+                <h2>Send a Message</h2>
+                <form id="contactForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-control" placeholder="Full Name">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" placeholder="Email Address">
+                        </div>
+                    </div>
+
+                    <label class="form-label">Subject</label>
+                    <input type="text" class="form-control" placeholder="Order support, product question...">
+
+                    <label class="form-label">Message</label>
+                    <textarea class="form-control" placeholder="Write your message"></textarea>
+
+                    <button type="submit" class="btn-send">Send Message</button>
+                </form>
+            </div>
+
+            <div class="info-side">
+                <div class="info-box">
+                    <h3>Store Information</h3>
+                    <p>123 Diamond Street, District 1, Ho Chi Minh City</p>
+                    <p>Phone: +84 987 654 321</p>
+                    <p>Email: support@crystaljewellery.com</p>
+                </div>
+
+                <div class="care-card">
+                    <h3>Customer Care</h3>
+                    <ul class="care-list">
+                        <li>Product consultation and sizing support</li>
+                        <li>Order tracking and payment assistance</li>
+                        <li>Warranty and jewellery care guidance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

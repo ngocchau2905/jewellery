@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Crystal Jewellery</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f5f1eb;
+            --primary-brown: #7a5533;
+            --text-muted: #8e8e8e;
+            --input-border: #eee;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+        }
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-box {
+            background: var(--primary-brown);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .brand-name h5 { margin: 0; font-weight: bold; font-size: 18px; }
+        .brand-name p { margin: 0; font-size: 11px; color: var(--text-muted); }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+        .btn-profile-top {
+            background: var(--primary-brown);
+            color: white !important;
+            padding: 8px 25px;
+            border-radius: 20px;
+        }
+        .lang-switch {
+            background: white;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+        }
+
+        /* Header Content */
+        .main-content { padding: 0 50px; }
+        .page-title {
+            font-family: 'Georgia', serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #2c2c2c;
+        }
+        .page-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        /* Layout Cards */
+        .profile-wrapper {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .display-card, .update-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .display-card { flex: 1; }
+        .update-card { flex: 1.2; }
+
+        /* Left Card Style */
+        .user-badge {
+            background: #e0f2f1;
+            color: #00897b;
+            padding: 4px 15px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .display-card h2 {
+            font-weight: bold;
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+        .info-row { margin-bottom: 15px; font-size: 15px; }
+        .info-label { font-weight: bold; color: #444; }
+        .info-value { color: var(--text-muted); }
+
+        /* Right Card Style */
+        .update-card h3 {
+            font-family: 'Georgia', serif;
+            font-size: 26px;
+            margin-bottom: 30px;
+        }
+        .form-label {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .form-control {
+            border: 1px solid var(--input-border);
+            border-radius: 12px;
+            padding: 12px 15px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        textarea.form-control { height: 120px; resize: none; }
+
+        .btn-save {
+            background: var(--primary-brown);
+            color: white;
+            width: 100%;
+            border: none;
+            padding: 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 992px) {
+            .profile-wrapper { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar-custom">
+        <div class="brand-section">
+            <div class="logo-box">CJ</div>
+            <div class="brand-name">
+                <h5>Crystal Jewellery</h5>
+                <p>Sales Management System</p>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="#" class="btn-profile-top">Profile</a>
+            <a href="cart.html">My Cart (1)</a>
+            <a href="#" onclick="logout()">Logout</a>
+            <div class="lang-switch"><b>EN</b> | VI</div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-title">My Profile</h1>
+        <p class="page-subtitle">Manage your personal information, delivery details, and account status.</p>
+
+        <div class="profile-wrapper">
+            <div class="display-card">
+                <span class="user-badge">User</span>
+                <h2>Customer Profile</h2>
+                
+                <div class="info-row">
+                    <span class="info-label">Name:</span> <span class="info-value" id="dispName">vcdv wjd</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Email:</span> <span class="info-value" id="dispEmail">user1@gmail.com</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Phone:</span> <span class="info-value" id="dispPhone">123456789</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Address:</span> <span class="info-value" id="dispAddress"></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Joined:</span> <span class="info-value">03/04/2026</span>
+                </div>
+            </div>
+
+            <div class="update-card">
+                <h3>Update Information</h3>
+                <form id="updateForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="fName" value="vcdv">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lName" value="wjd">
+                        </div>
+                    </div>
+
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="email" value="user1@gmail.com">
+
+                    <label class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="phone" value="123456789">
+
+                    <label class="form-label">Address</label>
+                    <textarea class="form-control" id="address"></textarea>
+
+                    <button type="submit" class="btn-save">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function logout() {
+            if(confirm('Are you sure you want to logout?')) {
+                // Xử lý logout tại đây
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Crystal Jewellery</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f5f1eb; /* Màu nền kem nhạt */
+            --primary-brown: #7a5533; /* Màu nâu chủ đạo */
+            --text-muted: #8e8e8e;
+            --input-bg: #eef4ff; /* Màu xanh nhạt của input trong hình */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+        }
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-box {
+            background: var(--primary-brown);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .brand-name h5 { margin: 0; font-weight: bold; font-size: 18px; }
+        .brand-name p { margin: 0; font-size: 11px; color: var(--text-muted); }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+        .btn-login-top {
+            background: var(--primary-brown);
+            color: white !important;
+            padding: 8px 25px;
+            border-radius: 20px;
+        }
+        .lang-switch {
+            background: white;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+        }
+
+        /* Main Content */
+        .login-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .login-title {
+            font-family: 'Georgia', serif;
+            font-size: 32px;
+            color: #2c2c2c;
+            margin-bottom: 20px;
+        }
+
+        .login-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            max-width: 500px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 30px;
+            padding: 50px 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            width: 100%;
+            max-width: 480px;
+            text-align: left;
+        }
+
+        .card-inner-title {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #2c2c2c;
+        }
+
+        /* Form */
+        .form-label {
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            border: none;
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 15px;
+            background-color: var(--input-bg);
+            margin-bottom: 20px;
+        }
+
+        .password-wrapper {
+            position: relative;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+        
+        .password-wrapper .form-control {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .btn-show-password {
+            background: var(--primary-brown);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 15px;
+            font-size: 13px;
+            height: 48px;
+            align-self: flex-start;
+        }
+
+        .btn-login-submit {
+            background: var(--primary-brown);
+            color: white;
+            width: 100%;
+            border: none;
+            padding: 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 25px;
+            font-size: 15px;
+            transition: opacity 0.3s;
+        }
+
+        .btn-login-submit:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar-custom">
+        <div class="brand-section">
+            <div class="logo-box">CJ</div>
+            <div class="brand-name">
+                <h5>Crystal Jewellery</h5>
+                <p>Sales Management System</p>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+            <a href="#">Profile</a>
+            <a href="#">My Cart</a>
+            <a href="#" class="btn-login-top">Login</a>
+            <a href="#">Register</a>
+            <div class="lang-switch"><b>EN</b> | VI</div>
+        </div>
+    </header>
+
+    <main class="login-section">
+        <h1 class="login-title">Login to Your Account</h1>
+        <p class="login-subtitle">
+            Users access shopping features, while staff and admin are redirected to the management dashboard after login.
+        </p>
+
+        <div class="login-card">
+            <h2 class="card-inner-title">Member Login</h2>
+            
+            <form id="loginForm">
+                <div class="mb-4">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" value="user1@gmail.com">
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" class="form-control" id="passwordInput" value="••••••">
+                        <button type="button" class="btn-show-password" onclick="togglePwd()">Show</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-login-submit">Login</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function togglePwd() {
+            const pwd = document.getElementById('passwordInput');
+            const btn = event.target;
+            if (pwd.type === 'password') {
+                pwd.type = 'text';
+                btn.textContent = 'Hide';
+            } else {
+                pwd.type = 'password';
+                btn.textContent = 'Show';
+            }
+        }
+    </script>
+</body>
+</html>

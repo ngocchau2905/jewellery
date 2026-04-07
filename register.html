@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Crystal Jewellery</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f5f1eb; /* Màu nền kem nhạt */
+            --primary-brown: #7a5533; /* Màu nâu chủ đạo */
+            --text-muted: #8e8e8e;
+            --input-border: #eee;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+        }
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-box {
+            background: var(--primary-brown);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .brand-name h5 { margin: 0; font-weight: bold; font-size: 18px; }
+        .brand-name p { margin: 0; font-size: 11px; color: var(--text-muted); }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+        .btn-register-top {
+            background: var(--primary-brown);
+            color: white !important;
+            padding: 8px 25px;
+            border-radius: 20px;
+        }
+        .lang-switch {
+            background: white;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+        }
+
+        /* Container */
+        .main-content {
+            padding: 0 50px;
+        }
+        .welcome-text {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .register-card {
+            background: white;
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Form */
+        .form-label {
+            font-weight: bold;
+            font-size: 14px;
+            color: #444;
+            margin-bottom: 8px;
+        }
+        .form-control {
+            border: 1px solid var(--input-border);
+            border-radius: 12px;
+            padding: 12px 15px;
+            font-size: 14px;
+            background-color: #fff;
+        }
+        .form-control::placeholder {
+            color: #ccc;
+        }
+        /* Style cho Email/Password khi có dữ liệu như trong hình */
+        .input-filled {
+            background-color: #eef4ff !important;
+            border-color: #d0e1ff !important;
+        }
+
+        .textarea-address {
+            height: 150px;
+            resize: none;
+        }
+
+        .btn-register-submit {
+            background: var(--primary-brown);
+            color: white;
+            width: 100%;
+            border: none;
+            padding: 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .row-gap {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar-custom">
+        <div class="brand-section">
+            <div class="logo-box">CJ</div>
+            <div class="brand-name">
+                <h5>Crystal Jewellery</h5>
+                <p>Sales Management System</p>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Contact</a>
+            <a href="#">Profile</a>
+            <a href="#">My Cart</a>
+            <a href="#">Login</a>
+            <a href="#" class="btn-register-top">Register</a>
+            <div class="lang-switch"><b>EN</b> | VI</div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <p class="welcome-text">Register to shop, track your cart, and manage your Crystal Jewellery profile.</p>
+
+        <div class="register-card">
+            <form id="registerForm">
+                <div class="row row-gap">
+                    <div class="col-md-6">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-control" placeholder="First Name">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Last Name">
+                    </div>
+                </div>
+
+                <div class="row row-gap">
+                    <div class="col-md-6">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control input-filled" value="user1@gmail.com">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" placeholder="Phone Number">
+                    </div>
+                </div>
+
+                <div class="row row-gap">
+                    <div class="col-md-6">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control input-filled" value="123456">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" placeholder="Confirm Password">
+                    </div>
+                </div>
+
+                <div class="row row-gap">
+                    <div class="col-12">
+                        <label class="form-label">Address</label>
+                        <textarea class="form-control textarea-address" placeholder="Your shipping address"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-register-submit">Register Account</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart - Crystal Jewellery</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f5f1eb;
+            --primary-brown: #7a5533;
+            --text-muted: #8e8e8e;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+        }
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-box {
+            background: var(--primary-brown);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .brand-name h5 { margin: 0; font-weight: bold; font-size: 18px; }
+        .brand-name p { margin: 0; font-size: 11px; color: var(--text-muted); }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+        .btn-cart-top {
+            background: var(--primary-brown);
+            color: white !important;
+            padding: 8px 25px;
+            border-radius: 20px;
+        }
+        .lang-switch {
+            background: white;
+            border-radius: 20px;
+            padding: 5px 15px;
+            font-size: 12px;
+            border: 1px solid #ddd;
+        }
+
+        /* Content */
+        .main-content { padding: 0 50px; }
+        .page-title {
+            font-family: 'Georgia', serif;
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #2c2c2c;
+        }
+        .page-subtitle {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .cart-wrapper {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        /* Cart Items Section */
+        .cart-items-list { flex: 1.5; }
+        .cart-item-card {
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            display: flex;
+            gap: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            position: relative;
+        }
+        .item-img-container {
+            width: 150px;
+            height: 150px;
+            background: #fdfaf7;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        .item-img-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .item-details { flex: 1; }
+        .item-name {
+            font-weight: bold;
+            font-size: 18px;
+            color: #2c2c2c;
+            margin-bottom: 15px;
+            max-width: 250px;
+        }
+        .item-specs {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .item-stock {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 15px;
+        }
+        .item-price {
+            font-weight: bold;
+            font-size: 20px;
+            color: var(--primary-brown);
+            position: absolute;
+            right: 40px;
+            top: 40px;
+        }
+
+        /* Controls inside Card */
+        .item-actions {
+            position: absolute;
+            right: 40px;
+            bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-end;
+        }
+        .quantity-input {
+            width: 60px;
+            height: 40px;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .btn-update {
+            background: var(--primary-brown);
+            color: white;
+            border: none;
+            padding: 8px 25px;
+            border-radius: 15px;
+            font-size: 13px;
+        }
+        .btn-remove-outline {
+            background: transparent;
+            color: #555;
+            border: 1px solid #eee;
+            padding: 8px 25px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        /* Summary Section */
+        .summary-card {
+            flex: 1;
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        }
+        .summary-card h2 {
+            font-family: 'Georgia', serif;
+            font-size: 26px;
+            margin-bottom: 30px;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 15px;
+            color: #555;
+        }
+        .summary-total {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            color: var(--primary-brown);
+        }
+        .btn-confirm {
+            background: var(--primary-brown);
+            color: white;
+            width: 100%;
+            border: none;
+            padding: 15px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar-custom">
+        <div class="brand-section">
+            <div class="logo-box">CJ</div>
+            <div class="brand-name">
+                <h5>Crystal Jewellery</h5>
+                <p>Sales Management System</p>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+            <a href="profile.html">Profile</a>
+            <a href="#" class="btn-cart-top">My Cart (1)</a>
+            <a href="#">Logout</a>
+            <div class="lang-switch"><b>EN</b> | VI</div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-title">My Cart</h1>
+        <p class="page-subtitle">Review selected jewellery pieces and update quantities before checkout.</p>
+
+        <div class="cart-wrapper">
+            <div class="cart-items-list">
+                <div class="cart-item-card">
+                    <div class="item-img-container">
+                        <img src="https://via.placeholder.com/120?text=Jewelry+Set" alt="Diamond Set">
+                    </div>
+                    <div class="item-details">
+                        <div class="item-name">White Gold (14K) Diamond Jewelry Set</div>
+                        <div class="item-specs">
+                            Main stone type: Diamond<br>
+                            Main stone color: White<br>
+                            Secondary stone type: Diamond<br>
+                            Secondary stone color: White
+                        </div>
+                        <div class="item-stock">In stock: 2</div>
+                    </div>
+                    <div class="item-price">$350.00</div>
+                    <div class="item-actions">
+                        <div class="d-flex align-items-center mb-2">
+                            <input type="number" class="quantity-input" value="1">
+                            <button class="btn-update">Update</button>
+                        </div>
+                        <button class="btn-remove-outline">Remove</button>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="summary-card">
+                <h2>Order Summary</h2>
+                <div class="summary-row">
+                    <span>Items:</span>
+                    <span>1</span>
+                </div>
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span>$350.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span>$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Discount:</span>
+                    <span>$0.00</span>
+                </div>
+                <div class="summary-row summary-total">
+                    <span>Total:</span>
+                    <span>$350.00</span>
+                </div>
+                <button class="btn-confirm">Confirm Order</button>
+            </aside>
+        </div>
+    </main>
+
+</body>
+</html>
